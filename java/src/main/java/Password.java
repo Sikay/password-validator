@@ -1,24 +1,26 @@
 public class Password {
+    private final int MIN_LENGTH = 8;
     String numberRegex = "[0-9]+";
 
     public boolean validate(String password) {
-        if (password.length() < 8) {
-            return false;
-        }
+        return minuminLengthPassword(password) && haveAnyCapitalLetter(password)
+                && haveAnyLowerLetter(password) && haveAnyNumber(password);
+    }
 
-        String passwordLowerCase = password.toLowerCase();
-       if (password.equals(passwordLowerCase)) {
-           return false;
-       }
 
-       if (password.equals(password.toUpperCase())) {
-          return false;
-       }
+    private boolean haveAnyNumber(String password) {
+        return !password.matches(numberRegex);
+    }
 
-       if (!password.matches(numberRegex)){
-           return false;
-       }
+    private boolean haveAnyLowerLetter(String password) {
+        return password.equals(password.toUpperCase());
+    }
 
-        return true;
+    private boolean haveAnyCapitalLetter(String password) {
+        return password.equals(password.toLowerCase());
+    }
+
+    private boolean minuminLengthPassword(String password) {
+        return (password.length() < MIN_LENGTH);
     }
 }
