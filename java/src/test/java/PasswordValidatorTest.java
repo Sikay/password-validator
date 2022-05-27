@@ -27,5 +27,7 @@ public class PasswordValidatorTest {
     public void should_have_a_lowers_letter() {
         assertFalse(password.validate("HOLACARACOLA"));
     }
+
+
 }
 

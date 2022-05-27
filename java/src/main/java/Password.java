@@ -12,6 +12,10 @@ public class Password {
            return false;
        }
 
+       if (password.equals(password.toUpperCase())) {
+          return false;
+       }
+
         return true;
     }
 }
