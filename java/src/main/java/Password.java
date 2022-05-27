@@ -7,13 +7,10 @@ public class Password {
             return false;
         }
 
-        String[] arrayPassword = password.split("");
         String passwordLowerCase = password.toLowerCase();
-        for (int i = 0; i < arrayPassword.length ; i++) {
-            if (!arrayPassword[i].equals(passwordLowerCase)) {
-                return false;
-            }
-        }
+       if (!password.equals(passwordLowerCase)) {
+           return false;
+       }
 
         return true;
     }
