@@ -20,8 +20,12 @@ public class PasswordValidatorTest {
 
     @Test
     public void should_have_a_capital_letter() {
-        assertFalse(password.validate("Holacaracola"));
+        assertFalse(password.validate("holacaracola"));
     }
 
+    @Test
+    public void should_have_a_lowers_letter() {
+        assertFalse(password.validate("HOLACARACOLA"));
+    }
 }
 

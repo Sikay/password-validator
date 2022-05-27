@@ -8,7 +8,7 @@ public class Password {
         }
 
         String passwordLowerCase = password.toLowerCase();
-       if (!password.equals(passwordLowerCase)) {
+       if (password.equals(passwordLowerCase)) {
            return false;
        }
 
