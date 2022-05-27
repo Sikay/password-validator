@@ -28,6 +28,9 @@ public class PasswordValidatorTest {
         assertFalse(password.validate("HOLACARACOLA"));
     }
 
-
+    @Test
+    public void should_have_a_number() {
+        assertFalse(password.validate("Holacaracola"));
+    }
 }
 
