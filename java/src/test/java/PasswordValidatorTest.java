@@ -11,13 +11,11 @@ public class PasswordValidatorTest {
         assertFalse(password.validate("hola"));
     }
 
-    /*
     @Test
     public void should_have_a_capital_letter() {
         Password password = new Password();
-        assertFalse(password.validate("hola"));
+        assertFalse(password.validate("Holacaracola"));
     }
 
-     */
 }
 
