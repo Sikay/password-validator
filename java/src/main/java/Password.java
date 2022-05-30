@@ -13,23 +13,23 @@ public class Password {
     }
 
     private boolean hasUnderscore(String password) {
-        return !password.contains("_");
+        return password.contains("_");
     }
 
     private boolean hasNumber(String password) {
         Pattern regexNumber = Pattern.compile(numberRegex);
-        return !regexNumber.matcher(password).find();
+        return regexNumber.matcher(password).find();
     }
 
     private boolean hasCapitalLetter(String password) {
-        return password.equals(password.toUpperCase());
+        return !password.equals(password.toUpperCase());
     }
 
     private boolean hasLowerCase(String password) {
-        return password.equals(password.toLowerCase());
+        return !password.equals(password.toLowerCase());
     }
 
     private boolean hasMinimunLength(String password) {
-        return password.length() < MINIMUN_LENGTH;
+        return password.length() >= MINIMUN_LENGTH;
     }
 }
