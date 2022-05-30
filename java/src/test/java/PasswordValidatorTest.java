@@ -32,5 +32,10 @@ public class PasswordValidatorTest {
     public void should_have_a_number() {
         assertFalse(password.validate("Holacaracola"));
     }
+
+    @Test
+    public void should_have_an_underscore() {
+        assertFalse(password.validate("Holacaracola96"));
+    }
 }
 

@@ -9,18 +9,18 @@ public class Password {
 
 
     private boolean haveAnyNumber(String password) {
-        return !password.matches(numberRegex);
+        return password.matches(numberRegex);
     }
 
     private boolean haveAnyLowerLetter(String password) {
-        return password.equals(password.toUpperCase());
+        return !password.equals(password.toUpperCase());
     }
 
     private boolean haveAnyCapitalLetter(String password) {
-        return password.equals(password.toLowerCase());
+        return !password.equals(password.toLowerCase());
     }
 
     private boolean minuminLengthPassword(String password) {
-        return (password.length() < MIN_LENGTH);
+        return (password.length() > MIN_LENGTH);
     }
 }
