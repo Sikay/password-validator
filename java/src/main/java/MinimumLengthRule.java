@@ -6,10 +6,6 @@ public class MinimumLengthRule {
     }
 
     public boolean validate(String password) {
-        if (password.length() < passwordLength) {
-            return false;
-        }
-
-        return true;
+        return password.length() >= passwordLength;
     }
 }

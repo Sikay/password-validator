@@ -16,4 +16,10 @@ public class MinimumLengthRuleTest {
         MinimumLengthRule minimumLength = new MinimumLengthRule(6);
         assertFalse(minimumLength.validate("holat"));
     }
+
+    @Test
+    public void should_not_validate_a_negative_length() {
+        MinimumLengthRule minimumLength = new MinimumLengthRule(-1);
+        assertFalse(minimumLength.validate("holat"));
+    }
 }
