@@ -38,8 +38,4 @@ public class Password {
     private boolean hasLowerCase(String password) {
         return !password.equals(password.toLowerCase());
     }
-
-    private boolean hasMinimunLength(String password) {
-        return password.length() >= MINIMUN_LENGTH;
-    }
 }
