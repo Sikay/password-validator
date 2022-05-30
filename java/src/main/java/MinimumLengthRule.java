@@ -1,10 +1,15 @@
 public class MinimumLengthRule {
+    private int passwordLength;
 
-
-    public MinimumLengthRule(int i) {
+    public MinimumLengthRule(int passwordLength) {
+        this.passwordLength = passwordLength;
     }
 
-    public boolean validate(String holatu) {
+    public boolean validate(String password) {
+        if (password.length() < passwordLength) {
+            return false;
+        }
+
         return true;
     }
 }
