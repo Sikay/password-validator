@@ -1,32 +1,35 @@
 import java.util.regex.Pattern;
 
 public class Password {
+    public static final int MINIMUN_LENGTH = 8;
     String numberRegex = "[0-9]+";
 
     public boolean validate(String password) {
-        if (password.length() < 8) {
-            return false;
-        }
+        return hasMinimunLength(password) &&
+                hasLowerCase(password) &&
+                hasCapitalLetter(password) &&
+                hasNumber(password) &&
+                hasUnderscore(password);
+    }
 
-        String passwordLowerCase = password.toLowerCase();
-        if (password.equals(passwordLowerCase)) {
-            return false;
-        }
+    private boolean hasUnderscore(String password) {
+        return !password.contains("_");
+    }
 
-        if (password.equals(password.toUpperCase())) {
-            return false;
-        }
-
+    private boolean hasNumber(String password) {
         Pattern regexNumber = Pattern.compile(numberRegex);
+        return !regexNumber.matcher(password).find();
+    }
 
-        if (!regexNumber.matcher(password).find()){
-            return false;
-        }
+    private boolean hasCapitalLetter(String password) {
+        return password.equals(password.toUpperCase());
+    }
 
-        if (!password.contains("_")) {
-            return false;
-        }
+    private boolean hasLowerCase(String password) {
+        return password.equals(password.toLowerCase());
+    }
 
-        return true;
+    private boolean hasMinimunLength(String password) {
+        return password.length() < MINIMUN_LENGTH;
     }
 }
