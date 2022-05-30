@@ -23,6 +23,9 @@ public class Password {
             return false;
         }
 
+        if (!password.contains("_")) {
+            return false;
+        }
 
         return true;
     }
