@@ -42,5 +42,11 @@ public class PasswordValidatorTest {
     public void should_validate_right_password() {
         assertTrue(password.validate("Hola_caracola96"));
     }
+
+    @Test
+    public void should_password_receive_a_minimum_length_collaborator_class() {
+        Password password = new Password(new MinimumLengthRule(6));
+        assertTrue(password.validate("Hola_96"));
+    }
 }
 
