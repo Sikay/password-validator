@@ -4,8 +4,18 @@ public class Password {
     public static final int MINIMUN_LENGTH = 8;
     String numberRegex = "[0-9]+";
 
+    private MinimumLengthRule minimumLengthRule;
+
+    public Password(MinimumLengthRule minimumLengthRule) {
+        this.minimumLengthRule = minimumLengthRule;
+    }
+
+    public Password() {
+        this.minimumLengthRule = new MinimumLengthRule(MINIMUN_LENGTH);
+    }
+
     public boolean validate(String password) {
-        return hasMinimunLength(password) &&
+        return minimumLengthRule.validate(password) &&
                 hasLowerCase(password) &&
                 hasCapitalLetter(password) &&
                 hasNumber(password) &&
