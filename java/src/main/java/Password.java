@@ -7,24 +7,27 @@ public class Password {
     private MinimumLengthRule minimumLengthRule;
     private LowerCaseRule lowerCaseRule;
     private UpperCaseRule upperCaseRule;
+    private ContainsNumberRule containsNumberRule;
 
     public Password() {
         this.minimumLengthRule = new MinimumLengthRule(MINIMUN_LENGTH);
         this.lowerCaseRule = new LowerCaseRule();
         this.upperCaseRule = new UpperCaseRule();
+        this.containsNumberRule = new ContainsNumberRule();
     }
 
-    public Password(MinimumLengthRule minimumLengthRule, LowerCaseRule lowerCaseRule, UpperCaseRule upperCaseRule) {
+    public Password(MinimumLengthRule minimumLengthRule, LowerCaseRule lowerCaseRule, UpperCaseRule upperCaseRule, ContainsNumberRule containsNumberRule) {
         this.minimumLengthRule = minimumLengthRule;
         this.lowerCaseRule = lowerCaseRule;
         this.upperCaseRule = upperCaseRule;
+        this.containsNumberRule = containsNumberRule;
     }
 
     public boolean validate(String password) {
         return minimumLengthRule.validate(password) &&
                 lowerCaseRule.validate(password) &&
                 upperCaseRule.validate(password) &&
-                hasNumber(password) &&
+                containsNumberRule.validate(password) &&
                 hasUnderscore(password);
     }
 
