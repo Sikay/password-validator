@@ -14,6 +14,9 @@ public class Password {
         this.minimumLengthRule = new MinimumLengthRule(MINIMUN_LENGTH);
     }
 
+    public Password(LowerCaseRule lowerCaseRule) {
+    }
+
     public boolean validate(String password) {
         return minimumLengthRule.validate(password) &&
                 hasLowerCase(password) &&

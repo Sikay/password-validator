@@ -37,5 +37,11 @@ public class PasswordValidatorShould {
         Password password = new Password(new MinimumLengthRule(6));
         assertTrue(password.validate("Hola_96"));
     }
+
+    @Test
+    public void password_receive_a_lower_case_collaborator_class() {
+        Password password = new Password(new LowerCaseRule());
+        assertTrue(password.validate("Hola_96"));
+    }
 }
 
