@@ -19,7 +19,7 @@ public class Password {
 
     public boolean validate(String password) {
         return minimumLengthRule.validate(password) &&
-                !lowerCaseRule.validate(password) &&
+                lowerCaseRule.validate(password) &&
                 hasCapitalLetter(password) &&
                 hasNumber(password) &&
                 hasUnderscore(password);
