@@ -7,19 +7,9 @@ public class Password {
     private MinimumLengthRule minimumLengthRule;
     private LowerCaseRule lowerCaseRule;
 
-    public Password(MinimumLengthRule minimumLengthRule) {
-        this.minimumLengthRule = minimumLengthRule;
-        this.lowerCaseRule = new LowerCaseRule();
-    }
-
     public Password() {
         this.minimumLengthRule = new MinimumLengthRule(MINIMUN_LENGTH);
         this.lowerCaseRule = new LowerCaseRule();
-    }
-
-    public Password(LowerCaseRule lowerCaseRule) {
-        this.lowerCaseRule = lowerCaseRule;
-        this.minimumLengthRule = new MinimumLengthRule(MINIMUN_LENGTH);
     }
 
     public Password(MinimumLengthRule minimumLengthRule, LowerCaseRule lowerCaseRule) {
