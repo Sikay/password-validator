@@ -6,15 +6,17 @@ public class Password {
 
     private MinimumLengthRule minimumLengthRule;
     private LowerCaseRule lowerCaseRule;
+    private UpperCaseRule upperCaseRule;
 
     public Password() {
         this.minimumLengthRule = new MinimumLengthRule(MINIMUN_LENGTH);
         this.lowerCaseRule = new LowerCaseRule();
     }
 
-    public Password(MinimumLengthRule minimumLengthRule, LowerCaseRule lowerCaseRule) {
+    public Password(MinimumLengthRule minimumLengthRule, LowerCaseRule lowerCaseRule, UpperCaseRule upperCaseRule) {
         this.minimumLengthRule = minimumLengthRule;
         this.lowerCaseRule = lowerCaseRule;
+        this.upperCaseRule = upperCaseRule;
     }
 
     public boolean validate(String password) {
