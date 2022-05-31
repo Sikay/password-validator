@@ -11,6 +11,7 @@ public class Password {
     public Password() {
         this.minimumLengthRule = new MinimumLengthRule(MINIMUN_LENGTH);
         this.lowerCaseRule = new LowerCaseRule();
+        this.upperCaseRule = new UpperCaseRule();
     }
 
     public Password(MinimumLengthRule minimumLengthRule, LowerCaseRule lowerCaseRule, UpperCaseRule upperCaseRule) {
@@ -22,7 +23,7 @@ public class Password {
     public boolean validate(String password) {
         return minimumLengthRule.validate(password) &&
                 lowerCaseRule.validate(password) &&
-                hasCapitalLetter(password) &&
+                upperCaseRule.validate(password) &&
                 hasNumber(password) &&
                 hasUnderscore(password);
     }
@@ -34,10 +35,6 @@ public class Password {
     private boolean hasNumber(String password) {
         Pattern regexNumber = Pattern.compile(numberRegex);
         return regexNumber.matcher(password).find();
-    }
-
-    private boolean hasCapitalLetter(String password) {
-        return !password.equals(password.toUpperCase());
     }
 
 }
