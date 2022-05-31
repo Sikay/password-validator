@@ -34,7 +34,7 @@ public class PasswordValidatorShould {
 
     @Test
     public void password_receive_a_collaborator_class() {
-        Password password = new Password(new MinimumLengthRule(6), new LowerCaseRule(), new UpperCaseRule());
+        Password password = new Password(new MinimumLengthRule(6), new LowerCaseRule(), new UpperCaseRule(), new ContainsNumberRule());
         assertTrue(password.validate("Hola_96"));
     }
 }
