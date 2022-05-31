@@ -22,6 +22,11 @@ public class Password {
         this.minimumLengthRule = new MinimumLengthRule(MINIMUN_LENGTH);
     }
 
+    public Password(MinimumLengthRule minimumLengthRule, LowerCaseRule lowerCaseRule) {
+        this.minimumLengthRule = minimumLengthRule;
+        this.lowerCaseRule = lowerCaseRule;
+    }
+
     public boolean validate(String password) {
         return minimumLengthRule.validate(password) &&
                 !lowerCaseRule.validate(password) &&
