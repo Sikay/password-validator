@@ -6,12 +6,12 @@ import org.junit.jupiter.params.provider.CsvSource;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class PasswordValidatorShould {
-     private Password password;
+public class BasicPasswordValidatorShould {
+     private BasicPassword password;
 
     @BeforeEach
     public void create_a_password() {
-        password = new Password();
+        password = new BasicPassword();
     }
 
     @ParameterizedTest
@@ -34,25 +34,25 @@ public class PasswordValidatorShould {
 
     @Test
     public void password_receive_a_collaborator_class() {
-        Password password = new Password(new MinimumLengthRule(6), new LowerCaseRule(), new UpperCaseRule(), new ContainsNumberRule());
+        BasicPassword password = new BasicPassword(new MinimumLengthRule(6), new LowerCaseRule(), new UpperCaseRule(), new ContainsNumberRule());
         assertTrue(password.validate("Hola_96"));
     }
 
     @Test
     public void password_receive_a_underscore_collaborator_class() {
-        Password password = new Password(new ContainsUnderscoreRule());
+        BasicPassword password = new BasicPassword(new ContainsUnderscoreRule());
         assertTrue(password.validate("Hola_96"));
     }
 
     @Test
     public void password_receive_two_collaborator_class() {
-        Password password = new Password(new ContainsUnderscoreRule(),new MinimumLengthRule(5));
+        BasicPassword password = new BasicPassword(new ContainsUnderscoreRule(),new MinimumLengthRule(5));
         assertTrue(password.validate("Hola_"));
     }
 
     @Test
     public void password_receive_two_different_collaborator_class() {
-        Password password = new Password(new UpperCaseRule(),new MinimumLengthRule(5));
+        BasicPassword password = new BasicPassword(new UpperCaseRule(),new MinimumLengthRule(5));
         assertFalse(password.validate("hola"));
     }
 }

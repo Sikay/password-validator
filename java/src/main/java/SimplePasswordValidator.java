@@ -1,8 +1,8 @@
-public class SimplePasswordValidator extends Password {
+public class SimplePasswordValidator implements Password {
 
     public static final int PASSWORD_LENGTH = 3;
 
-    SimplePasswordValidator() {
-        super(new MinimumLengthRule(PASSWORD_LENGTH));
+    public boolean validate(String password) {
+        return new MinimumLengthRule(PASSWORD_LENGTH).validate(password);
     }
 }
