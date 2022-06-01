@@ -37,5 +37,11 @@ public class PasswordValidatorShould {
         Password password = new Password(new MinimumLengthRule(6), new LowerCaseRule(), new UpperCaseRule(), new ContainsNumberRule());
         assertTrue(password.validate("Hola_96"));
     }
+
+    @Test
+    public void password_receive_a_underscore_collaborator_class() {
+        Password password = new Password(new ContainsUnderscoreRule());
+        assertTrue(password.validate("Hola_96"));
+    }
 }
 
