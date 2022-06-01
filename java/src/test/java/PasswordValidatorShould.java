@@ -43,5 +43,17 @@ public class PasswordValidatorShould {
         Password password = new Password(new ContainsUnderscoreRule());
         assertTrue(password.validate("Hola_96"));
     }
+
+    @Test
+    public void password_receive_two_collaborator_class() {
+        Password password = new Password(new ContainsUnderscoreRule(),new MinimumLengthRule(5));
+        assertTrue(password.validate("Hola_"));
+    }
+
+    @Test
+    public void password_receive_two_different_collaborator_class() {
+        Password password = new Password(new UpperCaseRule(),new MinimumLengthRule(5));
+        assertFalse(password.validate("hola"));
+    }
 }
 

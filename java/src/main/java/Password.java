@@ -11,7 +11,8 @@ public class Password {
                new MinimumLengthRule(MINIMUN_LENGTH),
                new LowerCaseRule(),
                new UpperCaseRule(),
-               new ContainsNumberRule());
+               new ContainsNumberRule(),
+               new ContainsUnderscoreRule());
     }
 
     public Password(Rule... rules) {
@@ -24,12 +25,9 @@ public class Password {
                 return false;
             };
         }
-
-        return hasUnderscore(password);
+        return true;
     }
 
-    private boolean hasUnderscore(String password) {
-        return password.contains("_");
-    }
+
 
 }
