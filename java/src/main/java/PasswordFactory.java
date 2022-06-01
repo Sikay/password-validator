@@ -1,5 +1,5 @@
 public class PasswordFactory {
     public static Password createPassword(String simplePassword) {
-        return null;
+        return new SimplePasswordValidator();
     }
 }
