@@ -1,5 +1,5 @@
 public class SimplePasswordValidator {
     public boolean validate(String password) {
-        return false;
+        return new MinimumLengthRule(3).validate(password);
     }
 }
