@@ -1,6 +1,6 @@
 import java.util.regex.Pattern;
 
-public class ContainsNumberRule {
+public class ContainsNumberRule implements Rule {
 
     public static final String NUMBER_REGEX = "[0-9]+";
 

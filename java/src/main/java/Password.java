@@ -1,11 +1,10 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Password {
     public static final int MINIMUN_LENGTH = 8;
-
-    private MinimumLengthRule minimumLengthRule;
-    private LowerCaseRule lowerCaseRule;
-    private UpperCaseRule upperCaseRule;
-    private ContainsNumberRule containsNumberRule;
+    private List<Rule> rule = new ArrayList<>();
 
     public  Password() {
        this(
@@ -15,19 +14,18 @@ public class Password {
                new ContainsNumberRule());
     }
 
-    public Password(MinimumLengthRule minimumLengthRule, LowerCaseRule lowerCaseRule, UpperCaseRule upperCaseRule, ContainsNumberRule containsNumberRule) {
-        this.minimumLengthRule = minimumLengthRule;
-        this.lowerCaseRule = lowerCaseRule;
-        this.upperCaseRule = upperCaseRule;
-        this.containsNumberRule = containsNumberRule;
+    public Password(Rule... rules) {
+        this.rule.addAll(Arrays.asList(rules));
     }
 
     public boolean validate(String password) {
-        return minimumLengthRule.validate(password) &&
-                lowerCaseRule.validate(password) &&
-                upperCaseRule.validate(password) &&
-                containsNumberRule.validate(password) &&
-                hasUnderscore(password);
+        for (Rule rul: rule) {
+            if (!rul.validate(password)) {
+                return false;
+            };
+        }
+
+        return hasUnderscore(password);
     }
 
     private boolean hasUnderscore(String password) {

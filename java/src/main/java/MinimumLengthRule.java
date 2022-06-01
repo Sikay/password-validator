@@ -1,4 +1,4 @@
-public class MinimumLengthRule {
+public class MinimumLengthRule implements Rule {
     private int passwordLength;
     private final static int MIN_PASSWORD_LENGTH = 0;
 
