@@ -1,9 +1,12 @@
 public class PasswordFactory {
-    public static Password createPassword(String simplePassword) {
-        if (simplePassword.equals("simplePassword")) {
+    public static Password createPassword(String password) {
+        if (password.equals("simplePassword")) {
             return new SimplePasswordValidator();
         }
+        if (password.equals("mediumPassword")) {
+            return new MediumPasswordValidator();
+        }
 
-        return new BasicPassword();
+        return new StandardPassword();
     }
 }

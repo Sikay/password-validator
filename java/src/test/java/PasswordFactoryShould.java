@@ -11,8 +11,9 @@ public class PasswordFactoryShould {
     @Test
     public void create_a_default_password_validator() {
         assertInstanceOf(Password.class, PasswordFactory.createPassword(""));
-        assertInstanceOf(BasicPassword.class, PasswordFactory.createPassword(""));
+        assertInstanceOf(StandardPassword.class, PasswordFactory.createPassword(""));
     }
+
 
     @Test
     public void create_a_medium_password_validator() {

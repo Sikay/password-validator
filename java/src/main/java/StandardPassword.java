@@ -2,11 +2,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class BasicPassword implements Password {
+public class StandardPassword implements Password {
     public static final int MINIMUN_LENGTH = 8;
     private List<Rule> rule = new ArrayList<>();
 
-    public BasicPassword() {
+    public StandardPassword() {
        this(
                new MinimumLengthRule(MINIMUN_LENGTH),
                new LowerCaseRule(),
@@ -15,7 +15,7 @@ public class BasicPassword implements Password {
                new ContainsUnderscoreRule());
     }
 
-    public BasicPassword(Rule... rules) {
+    public StandardPassword(Rule... rules) {
         this.rule.addAll(Arrays.asList(rules));
     }
 
