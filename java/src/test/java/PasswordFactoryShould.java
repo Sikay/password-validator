@@ -13,4 +13,10 @@ public class PasswordFactoryShould {
         assertInstanceOf(Password.class, PasswordFactory.createPassword(""));
         assertInstanceOf(BasicPassword.class, PasswordFactory.createPassword(""));
     }
+
+    @Test
+    public void create_a_medium_password_validator() {
+        assertInstanceOf(Password.class, PasswordFactory.createPassword("mediumPassword"));
+        assertInstanceOf(MediumPasswordValidator.class, PasswordFactory.createPassword("mediumPassword"));
+    }
 }
