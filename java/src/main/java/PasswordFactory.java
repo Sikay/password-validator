@@ -1,12 +1,17 @@
+import java.util.Map;
+
 public class PasswordFactory {
-    public static Password createPassword(String password) {
-        if (password.equals("simplePassword")) {
-            return new SimplePasswordValidator();
-        }
-        if (password.equals("mediumPassword")) {
-            return new MediumPasswordValidator();
+    private static final Map<PasswordType, Password> passwordTypes = (Map<PasswordType, Password>) Map.of(
+            PasswordType.SIMPLE_PASSWORD, new SimplePasswordValidator(),
+            PasswordType.MEDIUM_PASSWORD, new MediumPasswordValidator(),
+            PasswordType.STANDARD_PASSWORD, new StandardPassword()
+    );
+
+    public static Password create(PasswordType passwordType) {
+        if (null == passwordType) {
+            throw new IllegalArgumentException();
         }
 
-        return new StandardPassword();
+        return passwordTypes.get(passwordType);
     }
 }
