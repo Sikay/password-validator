@@ -4,7 +4,7 @@ public class Main {
 
         System.out.println(simplePasswordValidator.validate("hola"));
 
-        Password simplePasswordValidator1 = PasswordFactory.createPassword("simplePassword");
+        Password simplePasswordValidator1 = PasswordFactory.create(PasswordType.SIMPLE_PASSWORD);
         System.out.println(simplePasswordValidator1.validate("hola"));
     }
 }
